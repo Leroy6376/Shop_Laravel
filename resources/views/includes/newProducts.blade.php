@@ -11,10 +11,10 @@
                     <h3 class="title">New Products</h3>
                     <div class="section-nav">
                         <ul class="section-tab-nav tab-nav">
+                            @foreach(\App\Models\Category::where('level', [0])->get()->take(5) as $level0Category)
+                                <li><a data-toggle="tab" href="#tab1">{{$level0Category->title}}</a></li>
+                            @endforeach
                             <li class="active"><a data-toggle="tab" href="#tab1">Laptops</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Smartphones</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Cameras</a></li>
-                            <li><a data-toggle="tab" href="#tab1">Accessories</a></li>
                         </ul>
                     </div>
                 </div>

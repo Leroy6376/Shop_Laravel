@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,5 +19,132 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $categories = [
+            [
+                'title' => 'Household',
+                'parent_id' => null,
+                'level' => 0
+            ],
+            [
+                'title' => 'Garden',
+                'parent_id' => null,
+                'level' => 0
+            ],
+            [
+                'title' => 'Network',
+                'parent_id' => null,
+                'level' => 0
+            ],
+            [
+                'title' => 'Smartphones',
+                'parent_id' => null,
+                'level' => 0
+            ],
+            [
+                'title' => 'PCs & laptops',
+                'parent_id' => null,
+                'level' => 0
+            ],
+            [
+                'title' => 'Components',
+                'parent_id' => null,
+                'level' => 0
+            ],
+            [
+                'title' => 'Accessories',
+                'parent_id' => null,
+                'level' => 0
+            ],
+            [
+                'title' => 'Office',
+                'parent_id' => null,
+                'level' => 0
+            ],
+            [
+                'title' => 'Built-in appliances',
+                'parent_id' => 1,
+                'level' => 1
+            ],
+            [
+                'title' => 'Kitchen appliances',
+                'parent_id' => 1,
+                'level' => 1
+            ],
+            [
+                'title' => 'Home appliances',
+                'parent_id' => 1,
+                'level' => 1
+            ],
+            [
+                'title' => 'WI-FI routers',
+                'parent_id' => 3,
+                'level' => 1
+            ],
+            [
+                'title' => 'Protection and power supplies',
+                'parent_id' => 3,
+                'level' => 1
+            ],
+            [
+                'title' => 'Video surveillance',
+                'parent_id' => 3,
+                'level' => 1
+            ],
+            [
+                'title' => 'Smartphones and gadgets',
+                'parent_id' => 4,
+                'level' => 1
+            ],
+            [
+                'title' => 'Tablets',
+                'parent_id' => 4,
+                'level' => 1
+            ],
+            [
+                'title' => 'Computers and Software',
+                'parent_id' => 5,
+                'level' => 1
+            ],
+            [
+                'title' => 'Laptops and Accessories',
+                'parent_id' => 5,
+                'level' => 1
+            ],
+            [
+                'title' => 'Main components',
+                'parent_id' => 6,
+                'level' => 1
+            ],
+            [
+                'title' => 'Expansion devices',
+                'parent_id' => 6,
+                'level' => 1
+            ],
+            [
+                'title' => 'For mobile devices',
+                'parent_id' => 7,
+                'level' => 1
+            ],
+            [
+                'title' => 'For computers and laptops',
+                'parent_id' => 7,
+                'level' => 1
+            ],
+            [
+                'title' => 'Consumables',
+                'parent_id' => 8,
+                'level' => 1
+            ],
+            [
+                'title' => 'Printing equipment',
+                'parent_id' => 8,
+                'level' => 1
+            ],
+        ];
+
+        foreach ($categories as $category) {
+            Category::create($category);
+        }
     }
 }

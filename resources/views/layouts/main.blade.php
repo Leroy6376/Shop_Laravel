@@ -63,7 +63,7 @@
                 <!-- LOGO -->
                 <div class="col-md-3">
                     <div class="header-logo">
-                        <a href="#" class="logo">
+                        <a href="{{route('index')}}" class="logo">
                             <img src="{{asset('./img/logo.png')}}" alt="">
                         </a>
                     </div>
@@ -76,8 +76,9 @@
                         <form>
                             <select class="input-select">
                                 <option value="0">All Categories</option>
-                                <option value="1">Category 01</option>
-                                <option value="1">Category 02</option>
+                                @foreach(\App\Models\Category::whereIn('level', [0])->get() as $level0Category)
+                                    <option value="{{$level0Category->id}}">{{$level0Category->title}}</option>
+                                @endforeach
                             </select>
                             <input class="input" placeholder="Search here">
                             <button class="search-btn">Search</button>
@@ -170,13 +171,13 @@
         <div id="responsive-nav">
             <!-- NAV -->
             <ul class="main-nav nav navbar-nav">
-                <li class="active"><a href="{{route('index')}}">Home</a></li>
-                <li><a href="#">Hot Deals</a></li>
-                <li><a href="{{route('category.index')}}">Categories</a></li>
-                <li><a href="#">Laptops</a></li>
-                <li><a href="#">Smartphones</a></li>
-                <li><a href="#">Cameras</a></li>
-                <li><a href="#">Accessories</a></li>
+                <li class="{{url()->current() === route('index') ? 'active' : ''}}"><a href="{{route('index')}}">Home</a></li>
+                <li class="{{url()->current() === route('index') ? 'active' : ''}}"><a href="#">Hot Deals</a></li>
+                <li class="{{url()->current() === route('category.index') ? 'active' : ''}}"><a href="{{route('category.index')}}">Categories</a></li>
+                <li class="{{url()->current() === route('item.index') ? 'active' : ''}}"><a href="{{route('item.index')}}">Items</a></li>
+                <li class="{{url()->current() === route('index') ? 'active' : ''}}"><a href="#">Smartphones</a></li>
+                <li class="{{url()->current() === route('index') ? 'active' : ''}}"><a href="#">Cameras</a></li>
+                <li class="{{url()->current() === route('index') ? 'active' : ''}}"><a href="#">Accessories</a></li>
             </ul>
             <!-- /NAV -->
         </div>

@@ -16,10 +16,10 @@
             </div>
             <div class="form-group">
                 <label>Parent category</label>
-                <select class="form-control" name="parent_id" value="{{$category->parent_id}}">
+                <select class="form-control" name="parent_id">
                     <option value="{{null}}">None</option>
                     @foreach($categories as $cat)
-                        <option value="{{$cat->id}}">{{$cat->title}}</option>
+                        <option {{$cat->id === $category->parent_id ? 'selected' : ''}} value="{{$cat->id}}">{{$cat->title}}</option>
                     @endforeach
                 </select>
             </div>
