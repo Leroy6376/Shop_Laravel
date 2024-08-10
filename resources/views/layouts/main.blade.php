@@ -175,8 +175,8 @@
                 <li class="{{url()->current() === route('index') ? 'active' : ''}}"><a href="#">Hot Deals</a></li>
                 <li class="{{url()->current() === route('category.index') ? 'active' : ''}}"><a href="{{route('category.index')}}">Categories</a></li>
                 <li class="{{url()->current() === route('item.index') ? 'active' : ''}}"><a href="{{route('item.index')}}">Items</a></li>
-                <li class="{{url()->current() === route('index') ? 'active' : ''}}"><a href="#">Smartphones</a></li>
-                <li class="{{url()->current() === route('index') ? 'active' : ''}}"><a href="#">Cameras</a></li>
+                <li class="{{url()->current() === route('color.index') ? 'active' : ''}}"><a href="{{route('color.index')}}">Colors</a></li>
+                <li class="{{url()->current() === route('index') ? 'active' : ''}}"><a href="#">Products</a></li>
                 <li class="{{url()->current() === route('index') ? 'active' : ''}}"><a href="#">Accessories</a></li>
             </ul>
             <!-- /NAV -->
