@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Category;
+use App\Models\Color;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Storage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,6 +21,8 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        Storage::delete(Storage::allFiles('public/images'));
 
         $categories = [
             [
@@ -143,8 +147,60 @@ class DatabaseSeeder extends Seeder
             ],
         ];
 
+        $colors = [
+            [
+                'title' => 'Red'
+            ],
+            [
+                'title' => 'Grey'
+            ],
+            [
+                'title' => 'Light blue'
+            ],
+            [
+                'title' => 'Dark blue'
+            ],
+            [
+                'title' => 'Green'
+            ],
+            [
+                'title' => 'Yellow'
+            ],
+            [
+                'title' => 'Pink'
+            ],
+            [
+                'title' => 'Orange'
+            ],
+            [
+                'title' => 'Brown'
+            ],
+            [
+                'title' => 'White'
+            ],
+            [
+                'title' => 'Black'
+            ],
+            [
+                'title' => 'Violet'
+            ],
+            [
+                'title' => 'Gold'
+            ],
+            [
+                'title' => 'Silver'
+            ],
+            [
+                'title' => 'Bronze'
+            ],
+
+        ];
+
         foreach ($categories as $category) {
             Category::create($category);
+        }
+        foreach ($colors as $color) {
+            Color::create($color);
         }
     }
 }

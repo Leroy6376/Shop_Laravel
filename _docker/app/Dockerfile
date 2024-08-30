@@ -2,11 +2,14 @@ FROM php:8.1-fpm
 
 RUN apt-get update && apt-get install -y \
       apt-utils \
+      curl \
       libpq-dev \
       libpng-dev \
       libzip-dev \
       zip unzip \
+      libgd-dev \
       git && \
+      docker-php-ext-configure gd && \
       docker-php-ext-install pdo_mysql && \
       docker-php-ext-install bcmath && \
       docker-php-ext-install gd && \

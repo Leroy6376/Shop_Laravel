@@ -43,6 +43,18 @@ Route::group(['prefix' => 'admin'], function () {
         Route::patch('/{color}', \App\Http\Controllers\Admin\Color\UpdateController::class)->name('admin.color.update');
         Route::delete('/{color}', \App\Http\Controllers\Admin\Color\DestroyController::class)->name('admin.color.destroy');
     });
+    Route::group(['prefix' => 'products'], function () {
+        Route::get('/', \App\Http\Controllers\Admin\Product\IndexController::class)->name('admin.product.index');
+        Route::get('/create', \App\Http\Controllers\Admin\Product\CreateController::class)->name('admin.product.create');
+        Route::post('/', \App\Http\Controllers\Admin\Product\StoreController::class)->name('admin.product.store');
+        Route::get('/{product}', \App\Http\Controllers\Admin\Product\ShowController::class)->name('admin.product.show');
+        Route::get('/{product}/edit', \App\Http\Controllers\Admin\Product\EditController::class)->name('admin.product.edit');
+        Route::patch('/{product}', \App\Http\Controllers\Admin\Product\UpdateController::class)->name('admin.product.update');
+        Route::delete('/{product}', \App\Http\Controllers\Admin\Product\DestroyController::class)->name('admin.product.destroy');
+    });
+    Route::group(['prefix' => 'images'], function () {
+        Route::delete('/{image}', \App\Http\Controllers\Admin\Image\DestroyController::class)->name('admin.image.destroy');
+    });
 });
 
 

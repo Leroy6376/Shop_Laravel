@@ -13,6 +13,10 @@
     <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+    <!-- dropzonejs -->
+    <link rel="stylesheet" href="{{asset('plugins/dropzone/min/dropzone.min.css')}}">
+
+    @yield('link')
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
@@ -41,6 +45,9 @@
             </li>
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="{{route('admin.color.index')}}" class="nav-link">Color</a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="{{route('admin.product.index')}}" class="nav-link">Product</a>
             </li>
         </ul>
     </nav>
@@ -108,6 +115,14 @@
                             </p>
                         </a>
                     </li>
+                    <li class="nav-item">
+                        <a href="{{route('admin.product.index')}}" class="nav-link">
+                            <i class="nav-icon fas fa-desktop"></i>
+                            <p>
+                                Product
+                            </p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -151,6 +166,10 @@
 <script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('dist/js/adminlte.js')}}"></script>
+<!-- Ekko Lightbox -->
+<script src="{{asset('plugins/ekko-lightbox/ekko-lightbox.min.js')}}"></script>
+<!-- bs-custom-file-input -->
+<script src="{{asset('plugins/bs-custom-file-input/bs-custom-file-input.min.js')}}"></script>
 
 <!-- PAGE PLUGINS -->
 <!-- jQuery Mapael -->
@@ -161,5 +180,8 @@
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{asset('dist/js/pages/dashboard2.js')}}"></script>
+
+@yield('script')
+
 </body>
 </html>
