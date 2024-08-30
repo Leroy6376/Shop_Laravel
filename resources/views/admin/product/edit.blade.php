@@ -25,11 +25,15 @@
                 </div>
                 <div class="form-group">
                     <label>Price</label>
-                    <input type="text" class="form-control" name="price" value="{{$product->price}}">
+                    <input type="text" class="form-control {{$errors->has('price') ? 'is-invalid' : ''}}" name="price"
+                           value="{{old('price') ?? $product->price}}">
+                    <div class="invalid-feedback">{{$errors->first('price')}}</div>
                 </div>
                 <div class="form-group">
                     <label>Count</label>
-                    <input type="text" class="form-control" name="count" value="{{$product->count}}">
+                    <input type="text" class="form-control {{$errors->has('count') ? 'is-invalid' : ''}}" name="count"
+                           value="{{old('count') ?? $product->count}}">
+                    <div class="invalid-feedback">{{$errors->first('count')}}</div>
                 </div>
 
                 <div class="form-group">
@@ -37,18 +41,18 @@
                     <select class="form-control" name="color_id">
                         @foreach($colors as $color)
                             <option
-                                {{$color->id === $product->color_id ? 'selected' : ''}} value="{{$color->id}}">{{$color->title}}</option>
+                                {{(old('color_id') && $color->id == old('color_id')) || ($color->id === $product->color_id && !old('color_id')) ? 'selected' : ''}} value="{{$color->id}}">{{$color->title}}</option>
                         @endforeach
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label>New file input</label>
-                    <div class="input-group">
-                        <div class="custom-file">
-                            <input type="file" name="images[]" class="custom-file-input" multiple>
-                            <label class="custom-file-label">Choose file</label>
-                        </div>
+                    <div class="custom-file">
+                        <input type="file" name="images[]"
+                               class="custom-file-input {{$errors->has('images.*') ? 'is-invalid' : ''}}" multiple>
+                        <label class="custom-file-label">Choose file</label>
+                        <div class="invalid-feedback">{{$errors->first('images.*')}}</div>
                     </div>
                 </div>
             </div>

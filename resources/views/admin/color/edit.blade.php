@@ -19,7 +19,8 @@
             <div class="card-body">
                 <div class="form-group">
                     <label>Title</label>
-                    <input type="text" class="form-control" name="title" value="{{$color->title}}">
+                    <input type="text" class="form-control {{$errors->has('title') ? 'is-invalid' : ''}}" name="title" value="{{$color->title}}">
+                    <div class="invalid-feedback">{{$errors->first('title')}}</div>
                 </div>
             </div>
             <!-- /.card-body -->

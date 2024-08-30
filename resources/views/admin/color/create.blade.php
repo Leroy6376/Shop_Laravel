@@ -3,7 +3,7 @@
 @section('content header')
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row mb-2">
                 <h1 class="m-1">Add color</h1>
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -18,7 +18,8 @@
             <div class="card-body">
                 <div class="form-group">
                     <label>Title</label>
-                    <input type="text" class="form-control" name="title" placeholder="Enter title">
+                    <input type="text" class="form-control {{$errors->has('title') ? 'is-invalid' : ''}}" name="title" placeholder="Enter title">
+                    <div class="invalid-feedback">{{$errors->first('title')}}</div>
                 </div>
             </div>
             <!-- /.card-body -->

@@ -3,7 +3,7 @@
 @section('content header')
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row">
+            <div class="row mb-2">
                     <h1 class="m-1">Add category</h1>
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -18,14 +18,15 @@
             <div class="card-body">
                 <div class="form-group">
                     <label>Title</label>
-                    <input type="text" class="form-control" name="title" placeholder="Enter title">
+                    <input type="text" class="form-control {{$errors->has('title') ? 'is-invalid' : ''}}" name="title" placeholder="Enter title" value="{{old('title')}}">
+                    <div class="invalid-feedback">{{$errors->first('title')}}</div>
                 </div>
                 <div class="form-group">
                     <label>Parent category</label>
                     <select class="form-control" name="parent_id">
                         <option value="{{null}}">None</option>
                         @foreach($categories as $category)
-                            <option value="{{$category->id}}">{{$category->title}}</option>
+                            <option {{$category->id == old('parent_id') ? 'selected' : ''}} value="{{$category->id}}">{{$category->title}}</option>
                         @endforeach
                     </select>
                 </div>

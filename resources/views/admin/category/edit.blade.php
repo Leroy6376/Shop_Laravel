@@ -19,14 +19,15 @@
             <div class="card-body">
                 <div class="form-group">
                     <label>Title</label>
-                    <input type="text" class="form-control" name="title" value="{{$category->title}}">
+                    <input type="text" class="form-control {{$errors->has('title') ? 'is-invalid' : ''}}" name="title" placeholder="Enter title" value="{{old('title') ?? $category->title}}">
+                    <div class="invalid-feedback">{{$errors->first('title')}}</div>
                 </div>
                 <div class="form-group">
                     <label>Parent category</label>
                     <select class="form-control" name="parent_id">
                         <option value="{{null}}">None</option>
                         @foreach($categories as $cat)
-                            <option {{$cat->id === $category->parent_id ? 'selected' : ''}} value="{{$cat->id}}">{{$cat->title}}</option>
+                            <option {{(old('parent_id') && $cat->id == old('parent_id')) || ($cat->id === $category->parent_id && !old('parent_id')) ? 'selected' : ''}} value="{{$cat->id}}">{{$cat->title}}</option>
                         @endforeach
                     </select>
                 </div>
