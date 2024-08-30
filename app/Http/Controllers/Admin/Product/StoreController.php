@@ -20,7 +20,15 @@ class StoreController extends Controller
         $images = $data['images'];
         unset($data['images']);
 
-        $product = Product::firstOrCreate($data);
+        if($product = Product::where('item_id', $data['item_id'])->where('color_id', $data['color_id'])->first()) {
+            foreach ($product->images() as $image) {
+                Storage::disk('public')->delete($image->path);
+                $image->delete();
+            }
+        }
+
+        $product = Product::updateOrCreate(['item_id' => $data['item_id'], 'color_id' => $data['color_id']], $data);
+
 
         foreach ($images as $image) {
             $name = md5(Carbon::now() . '_' . $image->getClientOriginalName()) . '.' . $image->getClientOriginalExtension();
